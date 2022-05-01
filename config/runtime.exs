@@ -82,4 +82,21 @@ if config_env() == :prod do
   #     config :swoosh, :api_client, Swoosh.ApiClient.Hackney
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
+
+  magic_cookie =
+    System.get_env("LIBCLUSTER_COOKIE") ||
+      raise """
+      environment variable LIBCLUSTER_COOKIE is missing.
+      You can generate one by calling: mix phx.gen.secret
+      """
+
+  config :libcluster,
+    topologies: [
+      gossip_example: [
+        strategy: Elixir.Cluster.Strategy.Gossip,
+        config: [
+          secret: magic_cookie
+        ]
+      ]
+    ]
 end
