@@ -7,6 +7,8 @@ defmodule Neptune.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = Application.get_env(:libcluster, :topologies) || []
+
     children = [
       # Start the Ecto repository
       Neptune.Repo,
@@ -15,9 +17,10 @@ defmodule Neptune.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Neptune.PubSub},
       # Start the Endpoint (http/https)
-      NeptuneWeb.Endpoint
+      NeptuneWeb.Endpoint,
       # Start a worker by calling: Neptune.Worker.start_link(arg)
       # {Neptune.Worker, arg}
+      {Cluster.Supervisor, [topologies, [name: Neptune.ClusterSupervisor]]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
