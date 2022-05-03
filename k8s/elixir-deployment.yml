@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: neptune
-          image: miguelcoba/neptune:1.0
+          image: <LOCATION>-docker.pkg.dev/<PROJECT_ID>/<REPOSITORY_NAME>/neptune:1.0
           env:
             - name: SECRET_KEY_BASE
               valueFrom:
