@@ -1,19 +1,25 @@
 # Neptune
 
-To start your Phoenix server:
+This is the source code for the ["Deploying Elixir: Advanced Topics"](https://store.miguelcoba.com/l/advancedtopics) book.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+## Branches
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+The source code is organized in branches. One branch for each main feature presented in the book.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+The branch tree is a follows:
 
-## Learn more
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+```
+- main
+  - elixir-nodes-info
+    - elixir-libcluster
+      - elixir-libcluster-epmd
+      - elixir-libcluster-localepmd
+      - elixir-libcluster-erlanghosts
+      - elixir-libcluster-gossip
+      - elixir-libcluster-kubernetes-postgresql
+        - elixir-libcluster-kubernetes-dns
+          - elixir-libcluster-kubernetes-azure
+          - elixir-libcluster-kubernetes-aws
+          - elixir-libcluster-kubernetes-gcp
+```
